@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scripts.js"></script>
+    <script defer src="scripts.js"></script>
 </head>
 <body>
     <div class="header"> 
@@ -15,21 +15,21 @@
         <div class="main-section">
             <div class="player">
                 <img src="img/person.png" alt="person">
-                Score:
+                <span id="player-score">Score : 0</span>
             </div>
 
             <div class="player">
                 <img src="img/computer.png" alt="computer">
-                Score:
+                <span id="computer-score">Score : 0</span>
             </div>
         </div>
         <div class="winner">
-            <h1>Winner :</h1>
+            Last winner : <span id="winner"> </span>
         </div>
         <div class="options">
-            <button>🪨</button>
-            <button>📄</button>
-            <button>✂️</button>
+            <button value="🪨" onclick="game(value)">🪨</button>
+            <button value="📄" onclick="game(value)">📄</button>
+            <button value="✂️" onclick="game(value)">✂️</button>
         </div>
     </div>
     <div class="footer">
