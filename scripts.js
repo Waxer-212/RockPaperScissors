@@ -7,23 +7,32 @@ const playerScore_span = document.getElementById("player-score");
 const computerScore_span = document.getElementById("computer-score");
 const lastWinner = document.getElementById("winner");
 
+const playerChoice_span = document.getElementById("player-choice");
+const computerChoice_span = document.getElementById("computer-choice");
+
+//Gets the computer's choice
 function computerTurn() {
     const choices = ['🪨', '📄', '✂️'];
     const randomIndex = Math.floor(Math.random() * 3);
     return choices[randomIndex];
 }
 
+//Main function for the game
 function game(playerChoice) {
     const computerChoice = computerTurn();
+
+    playerChoice_span.textContent = playerChoice;
+    computerChoice_span.textContent = computerChoice;
+
     const winner = getWinner(playerChoice, computerChoice);
     displayWinner(winner);
 }
 
+//Function for getting the winner
 function getWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
-        return lastWinner;
+        return 'draw';
     }
-
     if (
         (playerChoice === '🪨' && computerChoice === '✂️') ||
         (playerChoice === '📄' && computerChoice === '🪨') ||
@@ -37,13 +46,18 @@ function getWinner(playerChoice, computerChoice) {
     }
 }
 
+//Function for displaying the winner
 function displayWinner(winner) {
-    playerScore_span.textContent = playerScore;
-    computerScore_span.textContent = computerScore;
+    playerScore_span.textContent = 'Score : ' + playerScore;
+    computerScore_span.textContent = 'Score : ' + computerScore;
     if(winner === 'player') {
-        lastWinner.textContent = 'Player!';
+        lastWinner.textContent = 'Player wins!';
     }
-    else {
-        lastWinner.textContent = 'Computer!';
+    else if(winner === 'computer') {
+        lastWinner.textContent = 'Computer wins!';
+    }
+    else
+    {
+        lastWinner.textContent = 'Draw!';
     }
 }

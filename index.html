@@ -13,18 +13,29 @@
     </div>
     <div class="body">
         <div class="main-section">
-            <div class="player">
-                <img src="img/person.png" alt="person">
-                <span id="player-score">Score : 0</span>
+
+            <div class="card">
+                <div class="player">
+                    <img src="img/person.png" alt="person">
+                    <span id="player-score">Score : 0</span>
+                </div>
+                <div class="choice">
+                    <span id="player-choice">None</span>
+                </div>
             </div>
 
-            <div class="player">
-                <img src="img/computer.png" alt="computer">
-                <span id="computer-score">Score : 0</span>
+            <div class="card">
+                <div class="choice">
+                    <span id="computer-choice">None</span>
+                </div>
+                <div class="player">
+                    <img src="img/computer.png" alt="computer">
+                    <span id="computer-score">Score : 0</span>
+                </div>
             </div>
         </div>
         <div class="winner">
-            Last winner : <span id="winner"> </span>
+             <span id="winner">Winner :</span>
         </div>
         <div class="options">
             <button value="🪨" onclick="game(value)">🪨</button>
