@@ -10,6 +10,8 @@ const lastWinner = document.getElementById("winner");
 const playerChoice_span = document.getElementById("player-choice");
 const computerChoice_span = document.getElementById("computer-choice");
 
+const historyList = document.getElementById("history-list");
+
 //Gets the computer's choice
 function computerTurn() {
     const choices = ['🪨', '📄', '✂️'];
@@ -25,6 +27,7 @@ function game(playerChoice) {
     computerChoice_span.textContent = computerChoice;
 
     const winner = getWinner(playerChoice, computerChoice);
+    addHistoryItem(playerChoice, computerChoice, winner);
     displayWinner(winner);
 }
 
@@ -44,6 +47,8 @@ function getWinner(playerChoice, computerChoice) {
         computerScore++;
         return 'computer';
     }
+
+    
 }
 
 //Function for displaying the winner
@@ -60,4 +65,12 @@ function displayWinner(winner) {
     {
         lastWinner.textContent = 'Draw!';
     }
+}
+
+//Function for adding the history item
+function addHistoryItem(playerChoice, computerChoice, winner)
+{
+    const historyItem = document.createElement("li");
+    historyItem.textContent = `Player choice : ${playerChoice} | Computer choice: ${computerChoice}  ------->  Winner: ${winner}`;
+    historyList.appendChild(historyItem);
 }
